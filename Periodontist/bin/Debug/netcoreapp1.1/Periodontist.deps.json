@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "8682cf9896f7b9ca0858d851a219324dc8e566fc"
+    "signature": "7f4e690380357d0f266ea352418e997593a9c602"
   },
   "compilationOptions": {
     "defines": [
@@ -38,7 +38,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.1.1",
           "Microsoft.NETCore.App": "1.1.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "1.1.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "1.1.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "1.1.0",
+          "bootstrap": "4.0.0-alpha6"
         },
         "runtime": {
           "Periodontist.dll": {}
@@ -47,6 +48,12 @@
           "Periodontist.dll": {}
         }
       },
+      "bootstrap/4.0.0-alpha6": {
+        "dependencies": {
+          "jQuery": "1.9.1"
+        }
+      },
+      "jquery/1.9.1": {},
       "microsoft.applicationinsights/2.2.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -3553,6 +3560,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "bootstrap/4.0.0-alpha6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wOT8R4w867bZfk6m1k4L15PjOkpZ56tWXZEgWvPyw7C/nr6PNzHYT/2HRRgNRpHD2TvCQHNCagLiyfB9XUY2qQ==",
+      "path": "bootstrap/4.0.0-alpha6",
+      "hashPath": "bootstrap.4.0.0-alpha6.nupkg.sha512"
+    },
+    "jquery/1.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HiX9icLyiJGgiL5EOIn0d1MBPHVV2M9mzWT4mANdniDNR51RvAFTyKEXEd2+5yQJ4PJ5xePOR61Vjj/omQzYcw==",
+      "path": "jquery/1.9.1",
+      "hashPath": "jquery.1.9.1.nupkg.sha512"
     },
     "microsoft.applicationinsights/2.2.0": {
       "type": "package",
