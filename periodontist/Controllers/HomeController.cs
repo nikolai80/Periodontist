@@ -1,4 +1,5 @@
-﻿using System;
+﻿using periodontist.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,34 @@ namespace periodontist.Controllers
 {
   public class HomeController : Controller
   {
+
+    PeriodontistContext db = new PeriodontistContext();
     public ActionResult Index()
     {
-      return View();
+      return View(db.UserQuestions);
+    }
+
+
+    [HttpPost]
+    public JsonResult SendQuestion(UserQuestion question)
+    {
+      bool result = false;
+      try
+      {
+        db.UserQuestions.Add(question);
+        db.SaveChanges();
+        result = true;
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+     
+      return Json(new
+      {
+        res=result
+      });
     }
 
     public ActionResult About()
@@ -25,6 +51,12 @@ namespace periodontist.Controllers
       ViewBag.Message = "Your contact page.";
 
       return View();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      db.Dispose();
+      base.Dispose(disposing);
     }
   }
 }

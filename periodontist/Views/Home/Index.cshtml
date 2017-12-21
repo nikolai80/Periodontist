@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<periodontist.Models.UserQuestion>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -38,6 +39,16 @@
     <input type="email" value="" class="form-control mb-2" data-toggle="tooltip" title="Укажите свой email" placeholder="Email..." />
 <textarea cols="20" rows="5" class="form-control mb-2">
 </textarea>
-<button type="button" class="btn btn-primary questionForm_sendQuestion" >Задать вопрос</button>
+<button type="button" class="btn btn-primary btnSendQuestion" >Задать вопрос</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <h3>Список людей</h3>
+    @foreach(var question in Model)
+    {
+     <div>@question.Name</div>
+    }
   </div>
 </div>
