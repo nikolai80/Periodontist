@@ -5,22 +5,31 @@ pd.question = {
 
     $(".btnSendQuestion").on("click", function (e) {
       e.preventDefault;
-      pd.question.sendQuestion();
+      var name, email, theme, questionText;
+      name = $(".questionForm__name").val();
+      email = $(".questionForm__email").val();
+      theme = $(".questionForm__theme").val();
+      questionText = $(".questionForm__text").val() || "";
+      console.log(name, email, theme, questionText);
+
+      pd.question.sendQuestion(name, email, theme, questionText);
     })
   }
-  , sendQuestion: function () {
+  , sendQuestion: function (name, email, theme, questionText) {
     var queryUrl = "Home/SendQuestion";
     $.ajax({
       url: queryUrl,
       type: "POST",
       dataType: "json",
       data: {
-        Name: "vasia"
-        , Email: "gg@rr.ru"
-        , QuestionText:"bla bla"
+        Name: name
+        , Email: email
+        , Theme: theme
+        , QuestionText: questionText
       },
       success: function (data) {
-        console.log(data);
+        if (data) {
+        };
       }
     });
   }

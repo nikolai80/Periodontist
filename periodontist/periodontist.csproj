@@ -201,6 +201,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712232113329_InitialCreate.cs" />
+    <Compile Include="Migrations\201712232113329_InitialCreate.Designer.cs">
+      <DependentUpon>201712232113329_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712232156083_MigrateDB.cs" />
+    <Compile Include="Migrations\201712232156083_MigrateDB.Designer.cs">
+      <DependentUpon>201712232156083_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -314,7 +323,14 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712232113329_InitialCreate.resx">
+      <DependentUpon>201712232113329_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712232156083_MigrateDB.resx">
+      <DependentUpon>201712232156083_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
