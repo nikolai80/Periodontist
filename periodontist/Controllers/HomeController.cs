@@ -1,7 +1,10 @@
 ﻿using periodontist.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -32,11 +35,40 @@ namespace periodontist.Controllers
 
         throw;
       }
-     
+
       return Json(new
       {
-        res=result
+        res = result
       });
+    }
+
+    [HttpPost]
+    public async Task<JsonResult> Upload()
+    {
+      try
+      {
+        foreach (string file in Request.Files)
+        {
+          var fileContent = Request.Files[file];
+          if (fileContent != null && fileContent.ContentLength > 0)
+          {
+            var fileName = fileContent.FileName;
+            if (!Directory.Exists(Server.MapPath("~/Uploads/UserFiles/")))
+            {
+              Directory.CreateDirectory(Server.MapPath("~/Uploads/UserFiles/"));
+            }
+            var path = Path.Combine(Server.MapPath("~/Uploads/UserFiles/"), fileName);
+            fileContent.SaveAs(path);
+          }
+        }
+      }
+      catch (Exception)
+      {
+        Response.StatusCode = (int)HttpStatusCode.BadRequest;
+        return Json("Upload failed");
+      }
+
+      return Json("File uploaded successfully");
     }
 
     public ActionResult About()
