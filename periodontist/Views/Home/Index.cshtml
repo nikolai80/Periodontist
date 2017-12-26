@@ -4,9 +4,9 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Он-лайн консультация</h1>
+    <p class="lead">Он-лайн консультация по проблеммам связанным с заболеванием десен и полости рта</p>
+    <p><a href="#question" class="btn btn-primary btn-lg">Задать вопрос &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -31,6 +31,7 @@
     </div>
 </div>
 <div id="questionForm" class="row">
+  <a id="question" href="#"></a>
   <div class="col-12">
     <h2>Задайте вопрос доктору</h2>
   </div>
@@ -42,15 +43,5 @@
 </textarea>
     <input id="uploadFiles" type="file" name="upload" class="inputFileUpload" /><br>
     <button type="button" class="btn btn-primary btnSendQuestion">Задать вопрос</button>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-12">
-    <h3>Список людей</h3>
-    @foreach(var question in Model)
-    {
-     <div>@question.Name</div>
-    }
   </div>
 </div>
