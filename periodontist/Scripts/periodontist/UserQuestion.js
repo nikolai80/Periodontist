@@ -3,6 +3,13 @@
 pd.question = {
   init: function () {
 
+    var questionForm = new Vue({
+      el: '#questionForm'
+      , methods: {
+      }
+    });
+
+
     $(".btnSendQuestion").on("click", function (e) {
       e.preventDefault;
       var name, email, theme, questionText;
