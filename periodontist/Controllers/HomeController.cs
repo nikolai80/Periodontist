@@ -45,6 +45,8 @@ namespace periodontist.Controllers
     [HttpPost]
     public async Task<JsonResult> Upload()
     {
+      var res = "";
+      var folderGuid = Guid.NewGuid();
       try
       {
         foreach (string file in Request.Files)
@@ -53,9 +55,9 @@ namespace periodontist.Controllers
           if (fileContent != null && fileContent.ContentLength > 0)
           {
             var fileName = fileContent.FileName;
-            if (!Directory.Exists(Server.MapPath("~/Uploads/UserFiles/")))
+            if (!Directory.Exists(Server.MapPath("~/Uploads/UserFiles/"+folderGuid)))
             {
-              Directory.CreateDirectory(Server.MapPath("~/Uploads/UserFiles/"));
+              Directory.CreateDirectory(Server.MapPath("~/Uploads/UserFiles/"+ folderGuid));
             }
             var path = Path.Combine(Server.MapPath("~/Uploads/UserFiles/"), fileName);
             fileContent.SaveAs(path);
@@ -68,7 +70,7 @@ namespace periodontist.Controllers
         return Json("Upload failed");
       }
 
-      return Json("File uploaded successfully");
+      return Json(folderGuid);
     }
 
     public ActionResult About()
