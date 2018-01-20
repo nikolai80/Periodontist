@@ -59,7 +59,7 @@ namespace periodontist.Controllers
             {
               Directory.CreateDirectory(Server.MapPath("~/Uploads/UserFiles/"+ folderGuid));
             }
-            var path = Path.Combine(Server.MapPath("~/Uploads/UserFiles/"), fileName);
+            var path = Path.Combine(Server.MapPath("~/Uploads/UserFiles/" + folderGuid), fileName);
             fileContent.SaveAs(path);
           }
         }

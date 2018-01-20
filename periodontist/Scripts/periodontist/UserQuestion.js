@@ -61,6 +61,7 @@ pd.question = {
           processData: false,
           data: data,
           success: function (result) {
+
             console.log(result);
           },
           error: function (xhr, status, p3, p4) {
