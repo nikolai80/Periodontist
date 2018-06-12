@@ -31,17 +31,19 @@
     </div>
 </div>
 <div id="questionForm" class="row">
-  <a id="question" href="#"></a>
-  <div class="col-12">
-    <h2>Задайте вопрос доктору</h2>
-  </div>
-  <div class="col-12 questionForm d-flex flex-column">
-    <input type="text" value="" class="form-control mb-2 questionForm__name" data-toggle="tooltip" title="Введите своё имя" placeholder="Имя..." />
-    <input type="email" value="" class="form-control mb-2 questionForm__email" data-toggle="tooltip" title="Укажите свой email" placeholder="Email..." />
-    <input type="text" value="" class="form-control mb-2 questionForm__theme" data-toggle="tooltip" title="Тема вопроса" placeholder="Тема..." />
+    <a id="question" href="#"></a>
+    <div class="col-12">
+        <h2>Задайте вопрос доктору</h2>
+    </div>
+    <div class="col-12 questionForm d-flex flex-column">
+        <input type="text" value="" class="form-control mb-2 questionForm__name" data-toggle="tooltip" title="Введите своё имя" placeholder="Имя..." />
+        <input type="email" value="" class="form-control mb-2 questionForm__email" data-toggle="tooltip" title="Укажите свой email" placeholder="Email..." />
+        <input type="text" value="" class="form-control mb-2 questionForm__theme" data-toggle="tooltip" title="Тема вопроса" placeholder="Тема..." />
 <textarea cols="20" rows="5" class="form-control mb-2 questionForm__text">
 </textarea>
-    <input id="uploadFiles" type="file" name="upload" class="inputFileUpload" /><br>
-    <button type="button" class="btn btn-primary btnSendQuestion">Задать вопрос</button>
-  </div>
+        <div class="uploadFiles">
+            <input id="uploadFiles" type="file" name="upload" class="inputFileUpload" multiple /><br>
+            <button type="button" class="btn btn-primary btnSendQuestion">Задать вопрос</button>
+        </div>
+    </div>
 </div>
