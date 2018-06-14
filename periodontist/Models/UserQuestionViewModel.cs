@@ -17,7 +17,9 @@ namespace periodontist.Models
 
             public string UserName { get; set; }
 
-            public string Question { get; set; }
+            public string QuestionText { get; set; }
+
+            public string Theme { get; set; }
         }
 
     }
