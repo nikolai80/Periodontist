@@ -13,7 +13,7 @@ namespace periodontist.Controllers
     public class HomeController : Controller
     {
 
-        PeriodontistContext db = new PeriodontistContext();
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View(db.UserQuestions);

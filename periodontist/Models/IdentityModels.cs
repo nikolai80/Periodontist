@@ -21,9 +21,11 @@ namespace periodontist.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("PeriodontistConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<UserQuestion> UserQuestions { get; set; }
 
         public static ApplicationDbContext Create()
         {
