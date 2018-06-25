@@ -1,43 +1,49 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<periodontist.Models.UserQuestion>
+@{
+    ViewBag.Title = "Пародонтолог";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Здесь вы можете получить он-лайн консультацию</h1>
+    <p class="lead">Если вас беспокоит сотояние вашей полости рта или вашего ребенка, но вы не знаете что делать.</p>
+    <p>Не волнуйтесь, возможно не всё так страшно, как может показаться на первый взгляд.</p>
+    <p>Вы можете направить вопрос мне, сопроводив его снимком. И я постараюсь дать вам рекомендации по дальнейшим действиям.</p>
+    <p><a href="#question" class="btn btn-primary btn-lg">Задать вопрос &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-4">
-        <h2>Getting started</h2>
+        <h2>Что такое пародонтология</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Пародонтология это...
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Читать дальше &raquo;</a></p>
     </div>
     <div class="col-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Немного обо мне</h2>
+        <p>Я закончила Белорусский государственный медицинский университет. Вот уже много лет я занимаюсь лечением и профилактикой заболеваний полости рта у детей и взрослых.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Читать дальше&raquo;</a></p>
     </div>
     <div class="col-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Часто задаваемые вопросы</h2>
+        <p>Здесь может быть уже готовый ответ на ваш вопрос.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Посмотреть &raquo;</a></p>
     </div>
 </div>
-<div class="row">
-  <div class="col-12">
-    <h2>Задайте вопрос доктору</h2>
-  </div>
-  <div class="col-12 questionForm d-flex flex-column">
-    <input type="text" value="" class="form-control mb-2" data-toggle="tooltip" title="Введите своё имя" placeholder="Имя..." />
-    <input type="email" value="" class="form-control mb-2" data-toggle="tooltip" title="Укажите свой email" placeholder="Email..." />
-<textarea cols="20" rows="5" class="form-control mb-2">
+<div id="questionForm" class="row">
+    <a id="question" href="#"></a>
+    <div class="col-12">
+        <h2>Задайте вопрос доктору</h2>
+    </div>
+    <div class="col-12 questionForm d-flex flex-column">
+        <input type="text" value="" class="form-control mb-2 questionForm__name" data-toggle="tooltip" title="Введите своё имя" placeholder="Имя..." />
+        <input type="email" value="" class="form-control mb-2 questionForm__email" data-toggle="tooltip" title="Укажите свой email" placeholder="Email..." />
+        <input type="text" value="" class="form-control mb-2 questionForm__theme" data-toggle="tooltip" title="Тема вопроса" placeholder="Тема..." />
+<textarea cols="20" rows="5" class="form-control mb-2 questionForm__text">
 </textarea>
-<button type="button" class="btn btn-primary questionForm_sendQuestion" >Задать вопрос</button>
-  </div>
+        <div class="uploadFiles">
+            <input id="uploadFiles" type="file" name="upload" class="inputFileUpload" multiple /><br>
+            <button type="button" class="btn btn-primary btnSendQuestion">Задать вопрос</button>
+        </div>
+    </div>
 </div>

@@ -28,8 +28,9 @@ namespace periodontist
 
       bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"
-                
+                "~/Scripts/respond.js",
+                "~/Scripts/vue.js"
+
                ));
 
       

@@ -83,4 +83,15 @@ namespace periodontist.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
+    public class AddRoleViewModel
+    {
+        public string UserId { get; set; }
+        public string RoleId { get; set; }
+    }
+    public class RemoveUserRoleModel
+    {
+        public string UserId { get; set; }
+        public string RoleId { get; set; }
+    }
 }
