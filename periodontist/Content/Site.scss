@@ -1,4 +1,16 @@
-﻿.headerTitle {
-  color: rgba(0,0,0,0.5);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+﻿$primary_color:rgb(20,229,194);
+$secondary_color:rgb(251,0,255);
+$theard_color:rgb(255,204,25);
+$primary_fontColor:rgb(255, 255, 255);
+$text_fontColor:rgb(0, 0, 0);
+$warning_fontColor:$theard_color;
+
+.siteHeader {
+    background-color: $primary_color;
+    color: $primary_fontColor;
+
+    .siteHeader__title {
+        color: $primary_fontColor;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
 }

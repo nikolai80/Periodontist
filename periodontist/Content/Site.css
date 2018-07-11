@@ -1,1 +1,7 @@
-﻿
+﻿.siteHeader {
+  background-color: #14e5c2;
+  color: white; }
+  .siteHeader .siteHeader__title {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; }
+
