@@ -5,3 +5,6 @@
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; }
 
+.horisontalLine {
+  border-bottom: 2px solid #ffcc19; }
+
