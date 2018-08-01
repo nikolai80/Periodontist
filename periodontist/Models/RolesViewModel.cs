@@ -2,9 +2,9 @@
 
 namespace periodontist.Models
 {
-    public class ApplicationRole : IdentityRole
+    public class RolesViewModel : IdentityRole
     {
-        public ApplicationRole() { }
+        public RolesViewModel() { }
 
         public string Description { get; set; }
 

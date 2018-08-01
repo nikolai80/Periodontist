@@ -31,5 +31,7 @@ namespace periodontist.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<periodontist.Models.ApplicationRole> IdentityRoles { get; set; }
     }
 }
