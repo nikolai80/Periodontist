@@ -1,0 +1,21 @@
+﻿@model periodontist.Models.UsersListViewModel
+@{
+    ViewBag.Title = "UsersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="usersList">
+    <h2>{{title}}</h2>
+    <ul class="usersList">
+        <li class="usersList-item"></li>
+    </ul>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        (function () {
+            pd.usersList.init();
+        })();
+    </script>
+
+}

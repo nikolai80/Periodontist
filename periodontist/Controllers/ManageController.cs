@@ -34,9 +34,9 @@ namespace periodontist.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -52,7 +52,10 @@ namespace periodontist.Controllers
             }
         }
 
-        public ApplicationRoleManager RoleManager { get {
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
                 return _roleManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationRoleManager>();
             }
 
@@ -87,6 +90,27 @@ namespace periodontist.Controllers
             };
             return View(model);
         }
+        [HttpGet]
+        public ActionResult UsersList()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public JsonResult GetUsersList()
+        {
+            var model = new UsersListViewModel
+            {
+                UsersList = UserManager.Users
+            };
+            return Json(new
+            {
+                result = model
+            });
+        }
+
+
 
         //
         // POST: /Manage/RemoveLogin
@@ -346,7 +370,7 @@ namespace periodontist.Controllers
             base.Dispose(disposing);
         }
 
-#region Вспомогательные приложения
+        #region Вспомогательные приложения
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа
         private const string XsrfKey = "XsrfId";
 
@@ -397,6 +421,6 @@ namespace periodontist.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
