@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -100,13 +101,31 @@ namespace periodontist.Controllers
         [HttpPost]
         public JsonResult GetUsersList()
         {
-            var model = new UsersListViewModel
+            List<UserViewModel> listUsers = new List<UserViewModel>();
+
+
+            foreach (var user in UserManager.Users.ToList())
             {
-                UsersList = UserManager.Users
-            };
+                try
+                {
+                    var u = new UserViewModel
+                    {
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        Role = user.Roles.FirstOrDefault()
+                    };
+
+                    listUsers.Add(u);
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+
             return Json(new
             {
-                result = model
+                result = listUsers
             });
         }
 

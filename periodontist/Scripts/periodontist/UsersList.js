@@ -1,34 +1,45 @@
-﻿pd = {} || ""
+﻿var usersList = usersList || {};
 
-pd.usersList = {
-    init: function () {
+usersList = {
+    config: {
+        title:"Список зарегистрированных пользователей"
+    }
+    ,init: function (config) {
+        if (config && typeof(config) == "object") {
+            $.extend(usersList.config, config);
+        }
 
-        var usersList = new Vue({
+        var users = new Vue({
             el: '#usersList'
             , methods: {
             }
             , data: {
-                title: 'Список зарегистрированных пользователей'
-                //, usersData: this.getUsersData()
+                title: usersList.config.title
+                , usersData: this.getUsersData()
             }
         });
-        this.getUsersData();
 
     }
 
     , getUsersData: function () {
 
         $.ajax({
-            url: "Manage/GetUsersList"
+            url: "/Manage/GetUsersList"
             , type: "POST"
             , dataType: "json"
             , success: function (data) {
-                console.info(data);
                 if (data) {
                     console.info(data);
+                    
                 }
+
             }
         });
 
     }
-}
+};
+$(document).ready(
+    function () {
+        usersList.init();
+    }
+);

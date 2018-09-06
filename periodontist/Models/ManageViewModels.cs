@@ -17,7 +17,7 @@ namespace periodontist.Models
 
     public class UsersListViewModel
     {
-        public IQueryable<ApplicationUser> UsersList { get; set; }
+        public IList<UserViewModel> UsersList { get; set; }
     }
 
     public class ManageLoginsViewModel

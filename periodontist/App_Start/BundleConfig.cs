@@ -12,7 +12,13 @@ namespace periodontist
 
 
             bundles.Add(new ScriptBundle("~/bundles/periodontist").Include(
-                     "~/Scripts/periodontist/*.js"
+                     "~/Scripts/periodontist/main.js"
+                     ));
+            bundles.Add(new ScriptBundle("~/bundles/userquestion").Include(
+                     "~/Scripts/periodontist/UserQuestion.js"
+                     ));
+            bundles.Add(new ScriptBundle("~/bundles/userslist").Include(
+                     "~/Scripts/periodontist/UsersList.js"
                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -26,14 +32,17 @@ namespace periodontist
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/popper").Include(
+                     "~/Scripts/umd/popper.js"
+                    ));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/popper.js",
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js",
-                      "~/Scripts/vue.js"
+                      "~/Scripts/respond.js"
                      ));
 
-
+            bundles.Add(new ScriptBundle("~/bundles/vue").Include(
+                     "~/Scripts/vue.js"
+                    ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

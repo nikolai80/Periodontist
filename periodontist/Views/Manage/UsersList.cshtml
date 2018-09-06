@@ -7,15 +7,12 @@
 <div id="usersList">
     <h2>{{title}}</h2>
     <ul class="usersList">
-        <li class="usersList-item"></li>
+        <li class="usersList-item" v-for="user in usersData">
+            {{user.Email}}
+        </li>
     </ul>
 </div>
 
 @section scripts{
-    <script type="text/javascript">
-        (function () {
-            pd.usersList.init();
-        })();
-    </script>
-
+    @Scripts.Render("~/bundles/userslist");
 }

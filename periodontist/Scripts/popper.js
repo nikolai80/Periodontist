@@ -2240,6 +2240,7 @@ var Defaults = {
 
 // Utils
 // Methods
+export default Popper;
 class Popper {
   /**
    * Create a new Popper.js instance
@@ -2368,5 +2369,5 @@ Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils;
 Popper.placements = placements;
 Popper.Defaults = Defaults;
 
-export default Popper;
+
 //# sourceMappingURL=popper.js.map
