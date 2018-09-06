@@ -126,7 +126,7 @@ namespace periodontist.Controllers
             return Json(new
             {
                 result = listUsers
-            });
+            }, JsonRequestBehavior.AllowGet);
         }
 
 

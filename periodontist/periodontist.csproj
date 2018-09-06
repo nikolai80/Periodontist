@@ -214,10 +214,6 @@
     <Compile Include="Migrations\201806141330197_dataRoleMigration.Designer.cs">
       <DependentUpon>201806141330197_dataRoleMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808011414032_Create role manager.cs" />
-    <Compile Include="Migrations\201808011414032_Create role manager.Designer.cs">
-      <DependentUpon>201808011414032_Create role manager.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
@@ -257,6 +253,8 @@
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <None Include=".bin\npm.cmd" />
+    <Content Include="Scripts\axios.js" />
+    <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -383,9 +381,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806141330197_dataRoleMigration.resx">
       <DependentUpon>201806141330197_dataRoleMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011414032_Create role manager.resx">
-      <DependentUpon>201808011414032_Create role manager.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
