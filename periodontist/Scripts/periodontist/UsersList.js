@@ -12,26 +12,26 @@ usersList = {
 
         var users = new Vue({
             el: '#usersList'
-            , methods: {
-                getList() {
-                    this.usersData=[{ "Email": "ggg@hh.ru" }];
-                    //$.ajax({
-                    //    url: "/Manage/GetUsersList"
-                    //    , type: "POST"
-                    //    , dataType: "json"
-                    //    , success: function (data) {
-                    //        if (data) {
-                    //            console.info(JSON.parse(JSON.stringify(data.result)));
-                    //        }
-                    //        this.userData= JSON.parse(JSON.stringify(data.result));
-                    //    }
-                    //});
-                }
-            }
             , data: {
                 title: usersList.config.title
                 , usersData: []
             }
+            , created: function () {
+                this.getList();
+            }
+            , methods: {
+                getList: function () {
+                    axios.post('/Manage/GetUsersList')
+                        .then(function (response) {
+                            console.log(JSON.parse(JSON.stringify(response.data.result)));
+                            users.usersData = response.data.result;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+            
         });
     }
 

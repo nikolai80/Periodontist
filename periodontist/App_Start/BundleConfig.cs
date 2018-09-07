@@ -39,7 +39,9 @@ namespace periodontist
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"
                      ));
-
+            bundles.Add(new ScriptBundle("~/bundles/axios").Include(
+                     "~/Scripts/axios.js"
+                    ));
             bundles.Add(new ScriptBundle("~/bundles/vue").Include(
                      "~/Scripts/vue.js"
                     ));
