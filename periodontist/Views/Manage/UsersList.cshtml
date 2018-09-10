@@ -6,11 +6,22 @@
 
 <div id="usersList">
     <h2>{{title}}</h2>
-    <ul class="usersList">
-        <li class="usersList-item" v-for="user in usersData">
-            {{user.Email}}-{{user.UserName}}
-        </li>
-    </ul>
+    <table class="usersList">
+        <thead>
+            <tr>
+                <td>Имя пользователя</td>
+                <td>Email</td>
+                <td>Роли</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="user in usersData">
+                <td>{{user.UserName}}</td>
+                <td>{{user.Email}}</td>
+                <td>Роли</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 @section scripts{
