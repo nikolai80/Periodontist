@@ -6,19 +6,25 @@
 
 <div id="usersList">
     <h2>{{title}}</h2>
-    <table class="usersList">
+    <table class="usersList table">
         <thead>
             <tr>
-                <td>Имя пользователя</td>
-                <td>Email</td>
-                <td>Роли</td>
+                <th scope="col">Имя пользователя</th>
+                <th scope="col">Email</td>
+                <th scope="col">Роли</td>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="user in usersData">
+            <tr v-for="user in usersData" scope="row">
                 <td>{{user.UserName}}</td>
                 <td>{{user.Email}}</td>
-                <td>Роли</td>
+                <td>
+                    <ul>
+                        <li v-for="role in user.Roles">
+                            {{role.Name}}
+                        </li>
+                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>
