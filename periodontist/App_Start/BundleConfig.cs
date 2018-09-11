@@ -21,6 +21,10 @@ namespace periodontist
                      "~/Scripts/periodontist/UsersList.js"
                      ));
 
+            bundles.Add(new ScriptBundle("~/bundles/roles").Include(
+                     "~/Scripts/periodontist/Role.js"
+                     ));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

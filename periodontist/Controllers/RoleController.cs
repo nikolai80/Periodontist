@@ -29,7 +29,26 @@ namespace periodontist.Controllers
 
         public ActionResult Index()
         {
-            return View(RoleManager.Roles);
+
+            
+
+            return View();
+        }
+        [HttpPost]
+       public JsonResult GetRoles()
+        {
+            
+            var res = RoleManager.Roles.ToList().Select(r =>
+                         new RolesViewModel
+                         {
+                             Name = r.Name,
+                             Description = r.Description
+                         });
+
+            return Json(new
+            {
+                result = res
+            });
         }
 
         [HttpPost]
