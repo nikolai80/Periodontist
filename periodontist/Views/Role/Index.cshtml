@@ -5,19 +5,15 @@
 }
 
 <div id="roleEditor" class="row">
-    <h2>{{title}}</h2>
-    <div class="row">
-        <div class="col">
+    <h2 class="col-12">{{title}}</h2>
+        <div class="col-12">
             <button class="addNewRole btn btn-primary" v-on:click="newRole">Добавить роль</button>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
+        <div class="col-12">
             <ul class="roleList">
                 <li class="roleList_item" v-for="role in rolesListData">{{role.Name}}- {{role.Description}}</li>
             </ul>
         </div>
-    </div>
 
     @*<table class="table">
             <tr>
@@ -48,23 +44,26 @@
             }
 
         </table>*@
-</div>
 
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Добавление новой роли</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
+    <div class="modal fade" id="addNewRole" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавление новой роли</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <input class="addNewRole_name form-control bg-light" type="text" placeholder="Название роли" />
+                    <input class="addNewRole_Description form-control bg-light mt-3" type="text" placeholder="Описание роли" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" v-on:click="addNewRole">Сохранить</button>
+                </div>
             </div>
         </div>
     </div>

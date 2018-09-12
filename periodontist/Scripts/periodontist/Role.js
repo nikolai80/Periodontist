@@ -15,7 +15,7 @@ role = {
             , data: {
                 title: role.config.title
                 , rolesListData: []
-                ,queryResponse
+                //,queryResponse
             }
             , created: function () {
                 this.getList();
@@ -24,7 +24,6 @@ role = {
                 getList: function () {
                     axios.post('/Role/GetRoles')
                         .then(function (response) {
-                            console.log(JSON.parse(JSON.stringify(response.data.result)));
                             rolesList.rolesListData = response.data.result;
                         })
                         .catch(function (error) {
@@ -32,13 +31,18 @@ role = {
                         });
                 }
                 , newRole: function () {
+                    $("#addNewRole").modal()
 
-                    axios.post('/Role/Create', new { Name: "name", Description: "description" })
-                        .then(function (response) {
-                            rolesList.queryResponse = response.data.result;
-                        }).catch(function (error) {
-                            console.log(error);
-                        });
+                    
+                }
+                , addNewRole: function () {
+                    console.info("add new role");
+                    //axios.post('/Role/Create', new { Name: "name", Description: "description" })
+                    //    .then(function (response) {
+                    //        rolesList.queryResponse = response.data.result;
+                    //    }).catch(function (error) {
+                    //        console.log(error);
+                    //    });
                 }
             }
 
