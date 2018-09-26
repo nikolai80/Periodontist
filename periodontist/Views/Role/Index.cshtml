@@ -11,7 +11,7 @@
         </div>
         <div class="col-12">
             <ul class="roleList">
-                <li class="roleList_item" v-for="role in rolesListData">{{role.Name}}- {{role.Description}}</li>
+                <li class="roleList_item" v-for="role in rolesListData">{{role.Name}}- {{role.Description}} <a href="#" class="btn roleList_itemId" v-bind:data-roleId="role.Id" v-on:click="removeRole(role.Id)">Удалить</a></li>
             </ul>
         </div>
 

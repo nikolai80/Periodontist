@@ -46,6 +46,16 @@ role = {
                             console.log(error);
                         });
                 }
+                , removeRole: function (roleId) {
+                    //var roleId = $(event.target).data("roleid");
+                    console.debug(roleId);
+                    axios.post('/Role/Delete', { Id: roleId })
+                        .then(function (response) {
+                            rolesList.getList();
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
+                }
             }
 
         });

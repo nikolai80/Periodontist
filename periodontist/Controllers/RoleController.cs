@@ -41,6 +41,7 @@ namespace periodontist.Controllers
             var res = RoleManager.Roles.ToList().Select(r =>
                          new RolesViewModel
                          {
+                             Id=r.Id,
                              Name = r.Name,
                              Description = r.Description
                          });
@@ -106,6 +107,7 @@ namespace periodontist.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public async Task<ActionResult> Delete(string id)
         {
             ApplicationRole role = await RoleManager.FindByIdAsync(id);
