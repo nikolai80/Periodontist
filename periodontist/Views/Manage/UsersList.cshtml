@@ -21,13 +21,18 @@
                 <td>
                     <ul>
                         <li v-for="role in user.Roles">
-                            {{role.Name}}
+                            <span>{{role.Name}}<a href="#" v-on:click="removeUserRole(role.Id)">Удалить</a></span>
                         </li>
                     </ul>
+                    <a href="#" v-on:click="addUserRole()">Добавить</a>
                 </td>
             </tr>
         </tbody>
     </table>
+
+
+
+
 </div>
 
 @section scripts{

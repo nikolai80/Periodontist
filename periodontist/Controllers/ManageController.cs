@@ -8,12 +8,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using periodontist.Models;
+using NLog;
 
 namespace periodontist.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
+        Logger _logger = LogManager.GetCurrentClassLogger();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
@@ -376,6 +378,32 @@ namespace periodontist.Controllers
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+        }
+        [HttpPost]
+        public JsonResult AddUserRole(AddRoleViewModel model)
+        {
+
+            var res = "Роль не добавлена";
+            if (!ModelState.IsValid)
+            {
+                res = "Данные не верны";
+            }
+            try
+            {
+                var role = UserManager.AddToRole(model.UserId, RoleManager.FindById(model.RoleId).Name);
+                res = "Роль успешно добавлена";
+                _logger.Info("Администратор добавил роль" + role + " для пользователя с ID= " + model.UserId);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("Ошибка при добавлении роли {0}", ex.Message);
+            }
+
+            return Json(new
+            {
+                result = res
+            });
+
         }
 
         protected override void Dispose(bool disposing)

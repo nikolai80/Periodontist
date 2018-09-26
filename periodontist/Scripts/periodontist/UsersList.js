@@ -29,28 +29,20 @@ usersList = {
                         .catch(function (error) {
                             console.log(error);
                         });
+                },
+                addUserRole: function (userId,roleId) {
+                    axios.post('/Manage/AddUserRole')
+                        .then(function (response) {
+
+
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
                 }
             }
             
         });
-    }
-
-    , getUsersData: function () {
-        
-      var list=  $.ajax({
-            url: "/Manage/GetUsersList"
-            , type: "POST"
-            , dataType: "json"
-            , success: function (data) {
-                if (data) {
-                    console.info(JSON.parse(JSON.stringify(data.result)));
-                }
-                return JSON.parse(JSON.stringify(data.result));
-            }
-        });
-
-      return list;
-
     }
 };
 $(document).ready(
