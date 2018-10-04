@@ -112,9 +112,10 @@ namespace periodontist.Controllers
                 {
                     var u = new UserViewModel
                     {
+                        Id = user.Id,
                         UserName = user.UserName,
                         Email = user.Email,
-                        Role = user.Roles.FirstOrDefault()
+                        Role = RoleManager.FindById(user.Roles.FirstOrDefault().RoleId)
                     };
 
                     listUsers.Add(u);
@@ -390,9 +391,27 @@ namespace periodontist.Controllers
             }
             try
             {
-                var role = UserManager.AddToRole(model.UserId, RoleManager.FindById(model.RoleId).Name);
-                res = "Роль успешно добавлена";
-                _logger.Info("Администратор добавил роль" + role + " для пользователя с ID= " + model.UserId);
+                if (UserManager.IsInRole(model.UserId, RoleManager.FindById(model.RoleId).Name))
+                {
+                    res = "Такая роль уже назначена пользователю";
+                }
+                else
+                {
+                    UserManager.RemoveFromRole(model.UserId, RoleManager.FindById(UserManager.FindById(model.UserId).Roles.FirstOrDefault().RoleId).Name);
+                    var role = UserManager.AddToRole(model.UserId, RoleManager.FindById(model.RoleId).Name);
+                    if (role.Succeeded)
+                    {
+                        res = "Роль успешно добавлена";
+                        _logger.Info("Администратор добавил роль" + role + " для пользователя с ID= " + model.UserId);
+                    }
+                    else
+                    {
+                        foreach (string err in role.Errors)
+                        {
+                            _logger.Warn(err);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

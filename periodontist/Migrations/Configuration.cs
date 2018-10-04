@@ -9,7 +9,8 @@ namespace periodontist.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            ContextKey = "periodontist.Models.ApplicationDbContext";
         }
 
         protected override void Seed(periodontist.Models.ApplicationDbContext context)

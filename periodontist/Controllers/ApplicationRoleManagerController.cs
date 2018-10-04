@@ -34,14 +34,14 @@ namespace periodontist.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Create(CreateRoleModel model)
+        public async Task<ActionResult> Create(CreateRoleViewModel model)
         {
             if (ModelState.IsValid)
             {
                 IdentityResult result = await RoleManager.CreateAsync(new ApplicationRole
                 {
                     Name = model.Name,
-                    Description = model.Description
+                    DescriptionRole = model.Description
                 });
                 if (result.Succeeded)
                 {
@@ -60,7 +60,7 @@ namespace periodontist.Controllers
             var role = await RoleManager.FindByIdAsync(id);
             if (role != null)
             {
-                return View(new EditRoleModel { Id = role.Id, Name = role.Name, Description = role.Description });
+                return View(new EditRoleModel { Id = role.Id, Name = role.Name, Description = role.DescriptionRole });
             }
             return RedirectToAction("Index");
         }
@@ -72,7 +72,7 @@ namespace periodontist.Controllers
                 var role = await RoleManager.FindByIdAsync(model.Id);
                 if (role != null)
                 {
-                    role.Description = model.Description;
+                    role.DescriptionRole = model.Description;
                     role.Name = model.Name;
                     IdentityResult result = await RoleManager.UpdateAsync(role);
                     if (result.Succeeded)

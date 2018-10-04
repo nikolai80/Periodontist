@@ -29,9 +29,6 @@ namespace periodontist.Controllers
 
         public ActionResult Index()
         {
-
-            
-
             return View();
         }
         [HttpPost]
@@ -43,7 +40,7 @@ namespace periodontist.Controllers
                          {
                              Id=r.Id,
                              Name = r.Name,
-                             Description = r.Description
+                             Description = r.DescriptionRole
                          });
 
             return Json(new
@@ -53,14 +50,14 @@ namespace periodontist.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(CreateRoleModel model)
+        public ActionResult Create(CreateRoleViewModel model)
         {
             if (ModelState.IsValid)
             {
-                IdentityResult result = await RoleManager.CreateAsync(new ApplicationRole
+                IdentityResult result = RoleManager.Create(new ApplicationRole
                 {
                     Name = model.Name,
-                    Description = model.Description
+                    DescriptionRole = model.Description
                 });
                 if (result.Succeeded)
                 {
@@ -79,7 +76,7 @@ namespace periodontist.Controllers
             ApplicationRole role = await RoleManager.FindByIdAsync(id);
             if (role != null)
             {
-                return View(new EditRoleModel { Id = role.Id, Name = role.Name, Description = role.Description });
+                return View(new EditRoleModel { Id = role.Id, Name = role.Name, Description = role.DescriptionRole });
             }
             return RedirectToAction("Index");
         }
@@ -91,7 +88,7 @@ namespace periodontist.Controllers
                 ApplicationRole role = await RoleManager.FindByIdAsync(model.Id);
                 if (role != null)
                 {
-                    role.Description = model.Description;
+                    role.DescriptionRole = model.Description;
                     role.Name = model.Name;
                     IdentityResult result = await RoleManager.UpdateAsync(role);
                     if (result.Succeeded)

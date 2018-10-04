@@ -5,7 +5,7 @@ usersList = {
         title:"Список зарегистрированных пользователей"
     }
     ,init: function (config) {
-        if (config && typeof(config) == "object") {
+        if (config && typeof(config) === "object") {
             $.extend(usersList.config, config);
             
         }
@@ -15,9 +15,12 @@ usersList = {
             , data: {
                 title: usersList.config.title
                 , usersData: []
+                , rolesData: []
+                ,userId:-1
             }
             , created: function () {
                 this.getList();
+
             }
             , methods: {
                 getList: function () {
@@ -30,16 +33,30 @@ usersList = {
                             console.log(error);
                         });
                 },
-                addUserRole: function (userId,roleId) {
-                    axios.post('/Manage/AddUserRole')
+                addUserRole: function (userId) {
+                    users.userId = userId;
+                    axios.post('/Role/GetRoles')
                         .then(function (response) {
-
-
+                            users.rolesData = response.data.result;
                         })
                         .catch(function (error) {
                             console.log(error);
                         });
+                    
+                    $("#addUserRoleModal").modal();
                 }
+                , saveUserRole: function (userId) {
+
+                    var roleId = $("#selectRole").val();
+                    axios.post('/Manage/AddUserRole', { UserId: userId, RoleId:roleId })
+                        .then(function (response) {
+                            console.debug(response.data.result);
+                            $("#addUserRoleModal").modal("hide");
+                            location.reload();
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });}
             }
             
         });

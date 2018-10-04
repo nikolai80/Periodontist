@@ -6,8 +6,6 @@ namespace periodontist.Models
     {
         public ApplicationRole() { }
 
-        public string Description { get; set; }
-
-
+        public string DescriptionRole { get; set; }
     }
 }
