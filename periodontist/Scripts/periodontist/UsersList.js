@@ -2,12 +2,12 @@
 
 usersList = {
     config: {
-        title:"Список зарегистрированных пользователей"
+        title: "Список зарегистрированных пользователей"
     }
-    ,init: function (config) {
-        if (config && typeof(config) === "object") {
+    , init: function (config) {
+        if (config && typeof (config) === "object") {
             $.extend(usersList.config, config);
-            
+
         }
 
         var users = new Vue({
@@ -16,7 +16,9 @@ usersList = {
                 title: usersList.config.title
                 , usersData: []
                 , rolesData: []
-                ,userId:-1
+                , userId: -1
+                , modalTitle: "Внимание!"
+                , modalMessage:"..."
             }
             , created: function () {
                 this.getList();
@@ -42,13 +44,13 @@ usersList = {
                         .catch(function (error) {
                             console.log(error);
                         });
-                    
+
                     $("#addUserRoleModal").modal();
                 }
                 , saveUserRole: function (userId) {
 
                     var roleId = $("#selectRole").val();
-                    axios.post('/Manage/AddUserRole', { UserId: userId, RoleId:roleId })
+                    axios.post('/Manage/AddUserRole', { UserId: userId, RoleId: roleId })
                         .then(function (response) {
                             console.debug(response.data.result);
                             $("#addUserRoleModal").modal("hide");
@@ -56,9 +58,28 @@ usersList = {
                         })
                         .catch(function (error) {
                             console.log(error);
-                        });}
+                        });
+                },
+                deleteUser: function (userId) {
+                    alert("Вы хотите удалить пользователя с Id= " + userId);
+                    axios.post('/Account/DeleteUser', { Id: userId })
+                        .then(function (response) {
+                            if (response.data.result) {
+                                this.data.modalTitle = "Удаление пользователя";
+                                this.data.modalMessage = "Пользователь успешно удалён";
+                                $("#userManipulationInfo").modal();
+                            }
+                            //location.reload();
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                            this.data.modalTitle = "Удаление пользователя";
+                            this.data.modalMessage = "Удаление пользователя вызвало ошибку. Пользователь не удалён.";
+                            $("#userManipulationInfo").modal();
+                        });
+                }
             }
-            
+
         });
     }
 };

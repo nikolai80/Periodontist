@@ -11,7 +11,8 @@ namespace periodontist.Models
         public string Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public ApplicationRole Role { get; set; }
+        public bool IsUserDelete { get; set; }
+        public ApplicationRole Role { get; set;}
 
     }
 }

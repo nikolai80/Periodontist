@@ -83,13 +83,26 @@ namespace periodontist.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+
+            var user = UserManager.FindById(userId);
+
+            var userData = new UserViewModel
+            {
+                Id = userId,
+                UserName = User.Identity.Name,
+                Email = user.Email,
+                IsUserDelete = user.IsUserDelete,
+                Role = RoleManager.FindById(user.Roles.FirstOrDefault().RoleId)
+            };
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                UserData = userData
             };
             return View(model);
         }
@@ -104,25 +117,32 @@ namespace periodontist.Controllers
         public JsonResult GetUsersList()
         {
             List<UserViewModel> listUsers = new List<UserViewModel>();
-
-
-            foreach (var user in UserManager.Users.ToList())
+            var users=UserManager.Users.Where(u=>u.IsUserDelete==false);
+            if (users.Count() > 0)
             {
-                try
+                foreach (var user in users.ToList())
                 {
-                    var u = new UserViewModel
+                    var userRole = RoleManager.FindById(user.Roles.FirstOrDefault().RoleId);
+                    if (userRole == null)
                     {
-                        Id = user.Id,
-                        UserName = user.UserName,
-                        Email = user.Email,
-                        Role = RoleManager.FindById(user.Roles.FirstOrDefault().RoleId)
-                    };
+                        _userManager.AddToRole(user.Id, "user");
+                    }
+                    try
+                    {
+                        var u = new UserViewModel();
 
-                    listUsers.Add(u);
-                }
-                catch (Exception ex)
-                {
-                    throw;
+                        u.Id = user.Id;
+                        u.UserName = user.UserName;
+                        u.Email = user.Email;
+                        u.IsUserDelete = user.IsUserDelete;
+                        u.Role = RoleManager.FindById(user.Roles.FirstOrDefault().RoleId);
+
+                        listUsers.Add(u);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error(ex.Message);
+                    }
                 }
             }
 

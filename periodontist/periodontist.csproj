@@ -206,37 +206,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141255592_dataMigration.cs" />
-    <Compile Include="Migrations\201806141255592_dataMigration.Designer.cs">
-      <DependentUpon>201806141255592_dataMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201812130833043_InitialMigrations.cs" />
+    <Compile Include="Migrations\201812130833043_InitialMigrations.Designer.cs">
+      <DependentUpon>201812130833043_InitialMigrations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806141330197_dataRoleMigration.cs" />
-    <Compile Include="Migrations\201806141330197_dataRoleMigration.Designer.cs">
-      <DependentUpon>201806141330197_dataRoleMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810031422102_UpdateDb.cs" />
-    <Compile Include="Migrations\201810031422102_UpdateDb.Designer.cs">
-      <DependentUpon>201810031422102_UpdateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810031445406_Description1.cs" />
-    <Compile Include="Migrations\201810031445406_Description1.Designer.cs">
-      <DependentUpon>201810031445406_Description1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810031458331_Description1Remove.cs" />
-    <Compile Include="Migrations\201810031458331_Description1Remove.Designer.cs">
-      <DependentUpon>201810031458331_Description1Remove.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810040932309_changeColumnName.cs" />
-    <Compile Include="Migrations\201810040932309_changeColumnName.Designer.cs">
-      <DependentUpon>201810040932309_changeColumnName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810041158374_Dummy.cs" />
-    <Compile Include="Migrations\201810041158374_Dummy.Designer.cs">
-      <DependentUpon>201810041158374_Dummy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810041203020_restoreIMigrationmetadata.cs" />
-    <Compile Include="Migrations\201810041203020_restoreIMigrationmetadata.Designer.cs">
-      <DependentUpon>201810041203020_restoreIMigrationmetadata.cs</DependentUpon>
+    <Compile Include="Migrations\201812130834379_addNewFieldToUser.cs" />
+    <Compile Include="Migrations\201812130834379_addNewFieldToUser.Designer.cs">
+      <DependentUpon>201812130834379_addNewFieldToUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -324,6 +300,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\periodontist\main.js" />
     <Content Include="Scripts\periodontist\Role.js" />
+    <Content Include="Scripts\periodontist\UserData.js" />
     <Content Include="Scripts\periodontist\UserQuestion.js" />
     <Content Include="Scripts\periodontist\UsersList.js" />
     <Content Include="Scripts\popper-utils.js" />
@@ -402,32 +379,13 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806141255592_dataMigration.resx">
-      <DependentUpon>201806141255592_dataMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812130833043_InitialMigrations.resx">
+      <DependentUpon>201812130833043_InitialMigrations.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806141330197_dataRoleMigration.resx">
-      <DependentUpon>201806141330197_dataRoleMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810031422102_UpdateDb.resx">
-      <DependentUpon>201810031422102_UpdateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810031445406_Description1.resx">
-      <DependentUpon>201810031445406_Description1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810031458331_Description1Remove.resx">
-      <DependentUpon>201810031458331_Description1Remove.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810040932309_changeColumnName.resx">
-      <DependentUpon>201810040932309_changeColumnName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810041158374_Dummy.resx">
-      <DependentUpon>201810041158374_Dummy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810041203020_restoreIMigrationmetadata.resx">
-      <DependentUpon>201810041203020_restoreIMigrationmetadata.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812130834379_addNewFieldToUser.resx">
+      <DependentUpon>201812130834379_addNewFieldToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

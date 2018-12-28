@@ -1,6 +1,6 @@
 ﻿@model periodontist.Models.UserViewModel
 @{
-    ViewBag.Title = "UsersList";
+   
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -22,6 +22,9 @@
                     <span>{{user.Role.Name}}</span>
                     <a href="#" v-on:click="addUserRole(user.Id)">Назначить роль</a>
                 </td>
+                <td>
+                    <a href="#" v-on:click="deleteUser(user.Id)">Удалить пользователя</a>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -39,7 +42,7 @@
                 </div>
 
                 <div class="modal-body">
-                   <div class="d-none addUserRole_userId">{{userId}}</div>
+                    <div class="d-none addUserRole_userId">{{userId}}</div>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="selectRole">Options</label>
@@ -49,6 +52,30 @@
                             <option v-for="role in rolesData" v-bind:value="role.Id">{{role.Name}}</option>
                         </select>
                     </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" v-on:click="saveUserRole(userId)">Добавить роль</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="userManipulationInfo" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">{{modalTitle}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <span>{{modalMessage}}</span>
                 </div>
 
                 <div class="modal-footer">
