@@ -1,12 +1,13 @@
 {
   "name": "Periodontist",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "vue-upload-component": "^2.8.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tinymce-vue": "1.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +21,7 @@
   "bugs": {
     "url": "https://github.com/nikolai80/Periodontist/issues"
   },
-  "homepage": "https://github.com/nikolai80/Periodontist#readme"
+  "homepage": "https://github.com/nikolai80/Periodontist#readme",
+  "description": ""
+  
 }
