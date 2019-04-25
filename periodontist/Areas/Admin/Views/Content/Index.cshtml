@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@Html.ActionLink("Добавить статью","AddArticle","Content")
+
+<div id="listArticles">
+    <div class="blogPostItem">
+        <h4 class="blogPostItem-header">{{title}}</h4>
+        <p class="blogPostItem-content">{{text}}</p>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Admin/content/content.js"></script>
+}
