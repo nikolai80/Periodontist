@@ -272,6 +272,21 @@
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <None Include=".bin\npm.cmd" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\browser\tinymce-vue.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\browser\tinymce-vue.min.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\components\Editor.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\components\EditorPropTypes.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\index.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\ScriptLoader.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\TinyMCE.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\Utils.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\components\Editor.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\components\EditorPropTypes.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\index.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\ScriptLoader.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\TinyMCE.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\Utils.js" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\LICENSE.txt" />
     <Content Include="node_modules\tinymce-vue\build\base.js" />
     <Content Include="node_modules\tinymce-vue\build\index.js" />
     <Content Include="node_modules\tinymce-vue\build\serve.js" />
@@ -682,6 +697,7 @@
     <Content Include="node_modules\vue\src\sfc\parser.js" />
     <Content Include="node_modules\vue\src\shared\constants.js" />
     <Content Include="node_modules\vue\src\shared\util.js" />
+    <Content Include="Scripts\Admin\content\AddArticle.js" />
     <Content Include="Scripts\Admin\content\content.js" />
     <Content Include="Scripts\axios.js" />
     <Content Include="Scripts\axios.min.js" />
@@ -772,6 +788,9 @@
     <Content Include="node_modules\vue\src\platforms\.DS_Store" />
     <Content Include="node_modules\vue\src\platforms\weex\.DS_Store" />
     <Content Include="node_modules\vue\src\platforms\weex\compiler\.DS_Store" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\CHANGELOG.md" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\package.json" />
+    <Content Include="node_modules\%40tinymce\tinymce-vue\README.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -981,6 +1000,18 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\components\Editor.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\components\EditorPropTypes.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\ScriptLoader.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\TinyMCE.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\cjs\Utils.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\components\Editor.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\components\EditorPropTypes.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\ScriptLoader.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\TinyMCE.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40tinymce\tinymce-vue\lib\es2015\Utils.d.ts" />
     <TypeScriptCompile Include="node_modules\vue-upload-component\index.d.ts" />
     <TypeScriptCompile Include="node_modules\vue\types\index.d.ts" />
     <TypeScriptCompile Include="node_modules\vue\types\options.d.ts" />

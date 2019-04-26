@@ -20,7 +20,7 @@ namespace periodontist.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddArticle()
+        public ActionResult AddArticle(string todo)
         {
             return View();
         }

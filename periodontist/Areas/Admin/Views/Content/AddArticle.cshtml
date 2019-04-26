@@ -4,25 +4,15 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<div id="addarticle">
-    <form method="post">
-        <textarea id="articletextarea">Hello, World!</textarea>
-    </form>
-</div>
+    <div id="addarticle">
+        <editor api-key="k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek" :init="{plugins: 'wordcount'}" v-model="content"></editor>
+        <div class="articleText" v-html="content"></div>
+    </div>
 
 @section scripts{
-    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
-
+    @*<script src="~/Scripts/tinymce/tinymce.min.js"></script>*@
+    <script src="~/node_modules/tinymce/tinymce.min.js"></script>
     @*<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek"></script>*@
-<script src="~/node_modules/tinymce-vue/dist/tinymce-vue.js"></script>
-
-
-    <script>
-        tinymce.init({
-            selector: '#articletextarea',
-            width: 600,
-            height: 300,
-            language: 'ru'
-        });
-    </script>
+<script src="~/node_modules/tinymce/tinymce-vue/lib/browser/tinymce-vue.min.js"></script>
+<script src="~/Scripts/Admin/content/AddArticle.js"></script>
 }
