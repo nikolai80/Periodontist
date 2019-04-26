@@ -5,8 +5,9 @@
 }
 
     <div id="addarticle">
+        <input type="text" class="titelArticle" v-model="titleArticle"/>
         <editor api-key="k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek" :init="{plugins: 'wordcount'}" v-model="content"></editor>
-        <div class="articleText" v-html="content"></div>
+        <button class="saveArticle" v-on:click="saveArticle">Сохранить текст</button>
     </div>
 
 @section scripts{

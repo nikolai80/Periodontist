@@ -15,7 +15,7 @@ namespace periodontist.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        Logger _logger = LogManager.GetCurrentClassLogger();
+        private Logger _logger = LogManager.GetLogger("main");
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
