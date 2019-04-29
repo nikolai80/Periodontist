@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[p_Article]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Title] NVARCHAR(250) NOT NULL, 
+    [Text] NVARCHAR(MAX) NULL, 
+    [UserID] NVARCHAR(128) NULL, 
+    [Data] DATE NOT NULL DEFAULT CONVERT (date, GETDATE())
+)
