@@ -6,7 +6,8 @@
     "vue-upload-component": "^2.8.0"
   },
   "devDependencies": {
-    "tinymce-vue": "1.0.0"
+    "tinymce-vue": "1.0.0",
+    "dapper": "0.0.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

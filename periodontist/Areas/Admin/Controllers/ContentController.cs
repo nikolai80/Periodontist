@@ -9,7 +9,7 @@ namespace periodontist.Areas.Admin.Controllers
     [Authorize]
     public class ContentController : Controller
     {
-        private Logger _logger = LogManager.GetCurrentClassLogger();
+        private Logger _logger = LogManager.GetLogger("admin");
 
         // GET: Admin/Content
         public ActionResult Index()
@@ -26,6 +26,7 @@ namespace periodontist.Areas.Admin.Controllers
         public ActionResult AddArticle(string titlearticle, string content)
         {
             var username = System.Web.HttpContext.Current.User.Identity.Name;
+
 
             return View();
         }
