@@ -16,23 +16,39 @@ namespace periodontist.BLL
 
         public void Create(Article item)
         {
-            throw new NotImplementedException();
+            string sql = "INSERT INTO p_Article(Title,Text,UserID,Data) VALUES(" + item.Title + "," + item.Text + "," + item.Author.Id + "," + item.Date + ")";
+            using (SqlConnection cn = new SqlConnection(connString))
+            {
+                cn.Open();
+                var res = cn.ExecuteScalar(sql);
+                cn.Close();
+            }
+
         }
 
         public Article FindById(int id)
         {
-            throw new NotImplementedException();
+            Article article = null;
+            string sql = "SELECT * FROM p_Article WHERE Id=" + id;
+            using (SqlConnection cn = new SqlConnection(connString))
+            {
+                cn.Open();
+                article = cn.Query<Article>(sql).FirstOrDefault();
+                cn.Close();
+            }
+
+            return article;
         }
 
         public IEnumerable<Article> GetAll()
         {
             IEnumerable<Article> articles;
-            string sql="SELECT * FROM Articles";
+            string sql = "SELECT * FROM p_Article";
             using (SqlConnection cn = new SqlConnection(connString))
             {
                 cn.Open();
                 int personId = 1;
-                 articles= cn.Query<Article>(sql);
+                articles = cn.Query<Article>(sql);
                 cn.Close();
             }
 
@@ -41,12 +57,24 @@ namespace periodontist.BLL
 
         public void Remove(Article item)
         {
-            throw new NotImplementedException();
+            string sql = "DELETE FROM p_Article WHERE Id=" + item.ID;
+            using (SqlConnection cn = new SqlConnection(connString))
+            {
+                cn.Open();
+                var res = cn.ExecuteScalar(sql);
+                cn.Close();
+            }
         }
 
         public void Update(Article item)
         {
-            throw new NotImplementedException();
+            string sql = "UPDATE p_Article SET Title=" + item.Title + ",Text=" + item.Text + ",UserID=" + item.Author.Id + ",Data=" + item.Date + "WHERE Id=" + item.ID;
+            using (SqlConnection cn = new SqlConnection(connString))
+            {
+                cn.Open();
+                var res = cn.ExecuteScalar(sql);
+                cn.Close();
+            }
         }
     }
 }
