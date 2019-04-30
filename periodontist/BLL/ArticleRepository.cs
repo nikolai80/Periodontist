@@ -14,16 +14,25 @@ namespace periodontist.BLL
     {
         private string connString = WebConfigurationManager.ConnectionStrings["PeriodontistConnection"].ConnectionString;
 
-        public void Create(Article item)
+        public bool Create(Article item)
         {
+            var res = false;
             string sql = "INSERT INTO p_Article(Title,Text,UserID,Data) VALUES(" + item.Title + "," + item.Text + "," + item.Author.Id + "," + item.Date + ")";
             using (SqlConnection cn = new SqlConnection(connString))
             {
                 cn.Open();
-                var res = cn.ExecuteScalar(sql);
+                try
+                {
+                    cn.ExecuteScalar(sql);
+                    res=true;
+                }
+                catch (Exception)
+                {
+                    res=false;
+                }
                 cn.Close();
             }
-
+            return res;
         }
 
         public Article FindById(int id)

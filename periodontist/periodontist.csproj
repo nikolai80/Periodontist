@@ -224,6 +224,7 @@
     <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="BLL\ArticleRepository.cs" />
     <Compile Include="BLL\Interfaces\IRepository.cs" />
+    <Compile Include="BLL\Managers\ArticleManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationRoleManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
