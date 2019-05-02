@@ -75,5 +75,10 @@
   <ItemGroup>
     <None Include="Snapshots\periodontistSQL_20190429_17-35-44.dacpac" />
     <None Include="periodontistSQL.publish.xml" />
+    <None Include="Snapshots\periodontistSQL_20190502_14-52-00.dacpac" />
+    <None Include="Snapshots\periodontistSQL_20190502_16-45-31.dacpac" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="periodontistSQL.refactorlog" />
   </ItemGroup>
 </Project>

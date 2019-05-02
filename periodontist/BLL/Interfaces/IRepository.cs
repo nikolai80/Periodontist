@@ -7,7 +7,7 @@ namespace periodontist.BLL.Interfaces
 {
     public interface IRepository<TEntity> where TEntity:class
     {
-        void Create(TEntity item);
+        bool Create(TEntity item);
         TEntity FindById(int id);
         IEnumerable<TEntity> GetAll();
         void Remove(TEntity item);

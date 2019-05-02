@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.Owin;
 using NLog;
+using periodontist.Areas.Admin.Models;
 using periodontist.BLL.Managers;
 using periodontist.Models;
 
@@ -34,26 +35,54 @@ namespace periodontist.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult GetAllArticles()
+        {
+            var res = false;
+            var users=UserManager.Users;
+            var articles = mng.GetAllArticles().Select(x => new ArticleViewModel
+                {
+                    Title = x.Title,
+                    Text = x.Text,
+                    Date = x.Date,
+                    AuthorName = UserManager.Users.Where(u=>u.Id==x.AuthorID).First().UserName
+                }).ToList();;
+            if (articles.Count>0)
+            {
+                res=true;
+            }
+
+            return Json(new
+            {
+                result = res,
+                data = articles
+            });
+        }
+
         [HttpGet]
         public ActionResult AddArticle()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddArticle(string titlearticle, string content)
+        public JsonResult AddArticle(string titlearticle, string content)
         {
+            var res = false;
             var userName = System.Web.HttpContext.Current.User.Identity.Name;
-            ApplicationUser authenticatedUser =UserManager.Users.Where(u=>u.UserName==userName).First();
+            ApplicationUser authenticatedUser = UserManager.Users.Where(u => u.UserName == userName).First();
 
-            mng.CreateArticle(new Models.Article
+            res = mng.CreateArticle(new Article
             {
                 Title = titlearticle,
                 Text = content,
                 Date = DateTime.Now.Date,
-                Author = authenticatedUser
+                AuthorID = authenticatedUser.Id
             });
 
-            return View();
+            return Json(new
+            {
+                result = res
+            });
         }
     }
 }

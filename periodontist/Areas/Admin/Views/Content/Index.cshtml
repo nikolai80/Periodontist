@@ -6,10 +6,11 @@
 
 @Html.ActionLink("Добавить статью","AddArticle","Content")
 
-<div id="listArticles">
-    <div class="blogPostItem">
-        <h4 class="blogPostItem-header">{{title}}</h4>
-        <p class="blogPostItem-content">{{text}}</p>
+<div id="listArticles" class="listArticles">
+
+    <div class="blogPostItem" v-for="article in articles">
+        <h4 class="blogPostItem-header">{{article.Title}}</h4>
+        <span class="blogPostItem-content" v-html="article.Text"></span>
     </div>
 </div>
 

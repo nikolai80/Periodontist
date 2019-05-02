@@ -7,17 +7,20 @@ using System.Web.Configuration;
 using Dapper;
 using periodontist.Models;
 using System.Data.SqlClient;
+using NLog;
+using System.Net;
 
 namespace periodontist.BLL
 {
     public class ArticleRepository : IRepository<Article>
     {
+        private Logger _log=LogManager.GetLogger("admin");
         private string connString = WebConfigurationManager.ConnectionStrings["PeriodontistConnection"].ConnectionString;
 
         public bool Create(Article item)
         {
             var res = false;
-            string sql = "INSERT INTO p_Article(Title,Text,UserID,Data) VALUES(" + item.Title + "," + item.Text + "," + item.Author.Id + "," + item.Date + ")";
+            string sql = "INSERT INTO p_Article(Title,Text,AuthorID,Data) VALUES(N'" + item.Title + "',N'" + item.Text + "','" + item.AuthorID + "','" + item.Date + "')";
             using (SqlConnection cn = new SqlConnection(connString))
             {
                 cn.Open();
@@ -26,8 +29,9 @@ namespace periodontist.BLL
                     cn.ExecuteScalar(sql);
                     res=true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    _log.Error(ex.Message);
                     res=false;
                 }
                 cn.Close();
@@ -77,7 +81,7 @@ namespace periodontist.BLL
 
         public void Update(Article item)
         {
-            string sql = "UPDATE p_Article SET Title=" + item.Title + ",Text=" + item.Text + ",UserID=" + item.Author.Id + ",Data=" + item.Date + "WHERE Id=" + item.ID;
+            string sql = "UPDATE p_Article SET Title=N'" + item.Title + "',Text=N'" + item.Text + "',AuthorID='" + item.AuthorID + "',Data='" + item.Date + "' WHERE Id=" + item.ID;
             using (SqlConnection cn = new SqlConnection(connString))
             {
                 cn.Open();

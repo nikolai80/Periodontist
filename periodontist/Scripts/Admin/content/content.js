@@ -1,7 +1,19 @@
 ﻿var listArticles = new Vue({
-    el:'#listArticles',
+    el: '#listArticles',
     data: {
-        title:'Заголовок статьи',
-        text:'Текст статьи'
+        articles: []
+    },
+    mounted: function () {
+        this.getAllArticles();
+    },
+    methods: {
+        getAllArticles: function () {
+            axios.post("content/GetAllArticles").then(function (response) {
+                if (response.data.result) {
+                    listArticles.articles = response.data.data;
+                }
+            });
+
+        }
     }
-    });
+});
