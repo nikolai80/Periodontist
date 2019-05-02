@@ -263,6 +263,12 @@
     <Content Include="App_Data\Periodontist_log.ldf">
       <DependentUpon>Periodontist.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\admin\content.css">
+      <DependentUpon>content.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\admin\content.min.css">
+      <DependentUpon>content.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -316,6 +322,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\admin\content.scss" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
