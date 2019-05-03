@@ -14,6 +14,12 @@
                 }
             });
 
+        },
+        updateArticl: function () {
+        alert("Обновить статью?");
+        },
+        removeArticl: function () {
+            alert("Удалить статью?");
         }
     }
 });

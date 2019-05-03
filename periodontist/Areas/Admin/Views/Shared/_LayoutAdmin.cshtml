@@ -8,46 +8,49 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/admin")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <header class="container siteHeader">
-        <h1 class="font-weight-bold siteHeader__title">Рыбченко Надежда Николаевна</h1>
-        <h3>Эксперт по заболеваниям полости рта</h3>
-        <p class="font-weight-bold text-uppercase">Панель администратора</p>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/">Домой<span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Пользователи", "UsersList", new { area = "", controller = "Manage" }, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item dropdown">
-                                @Html.ActionLink("Личный кабинет", "Index", new { area = "", controller = "Manage" }, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item">
-                                @Html.ActionLink("Управление контентом", "Index", "Content", null, new { @class = "nav-link" })
-                            </li>
+    <div class="siteHeader container-fluid">
+        <header class="container">
+            <h1 class="font-weight-bold siteHeader__title">Рыбченко Надежда Николаевна</h1>
+            <h3>Эксперт по заболеваниям полости рта</h3>
+            <p class="font-weight-bold text-uppercase">Панель администратора</p>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/">Домой<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Пользователи", "UsersList", new { area = "", controller = "Manage" }, new { @class = "nav-link" })
+                                </li>
+                                <li class="nav-item dropdown">
+                                    @Html.ActionLink("Личный кабинет", "Index", new { area = "", controller = "Manage" }, new { @class = "nav-link" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Управление контентом", "Index", "Content", null, new { @class = "nav-link" })
+                                </li>
 
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
 
-                </nav>
-                @Html.Partial("_LoginPartial")
+                    </nav>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-        </div>
-    </header>
-    <div>
+        </header>
+    </div>
+    <div class="container">
         @RenderBody()
     </div>
-    <footer><p>&copy; @DateTime.Now.Year – приложение ASP.NET</p></footer>
+    <footer class="fixed-bottom"><p>&copy; @DateTime.Now.Year – приложение ASP.NET</p></footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/popper")

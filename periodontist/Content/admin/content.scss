@@ -1,5 +1,46 @@
-﻿.listArticles
-{
-    display:grid;
-    grid-template-columns:auto 600px auto;
+﻿%flat_buttons{
+    color:#fff;
+    border:none;
+    padding:8px;
+    border-radius:8px;
+}
+
+.listArticles {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 24px;
+
+    .blogPostItem {
+        grid-column: 1;
+        grid-row: span 1;
+        display: grid;
+        grid-template-areas: "header header" "text text" "updateBtn removeBtn";
+        grid-template-columns: 1fr 80px;
+        grid-template-rows: auto;
+        grid-row-gap: 8px;
+
+        .blogPostItem-header {
+            grid-area: header;
+        }
+
+        .blogPostItem-content {
+            grid-area: text;
+        }
+
+        .updateArticl_btn {
+            @extend %flat_buttons;
+            background-color: #98d45e;
+            margin-right: 16px;
+            grid-area: updateBtn;
+            justify-self: end;
+        }
+
+        .removeArticl_btn {
+            @extend %flat_buttons;
+            background-color: red;
+            grid-area: removeBtn;
+            justify-self: end;
+        }
+    }
 }
