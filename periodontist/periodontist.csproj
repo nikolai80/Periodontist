@@ -309,6 +309,7 @@
     <Content Include="Areas\Admin\Views\Cabinet\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Content\AddArticle.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\UpdateArticle.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

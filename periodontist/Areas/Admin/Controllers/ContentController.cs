@@ -39,17 +39,18 @@ namespace periodontist.Areas.Admin.Controllers
         public JsonResult GetAllArticles()
         {
             var res = false;
-            var users=UserManager.Users;
+            var users = UserManager.Users;
             var articles = mng.GetAllArticles().Select(x => new ArticleViewModel
-                {
-                    Title = x.Title,
-                    Text = x.Text,
-                    Date = x.Date,
-                    AuthorName = UserManager.Users.Where(u=>u.Id==x.AuthorID).First().UserName
-                }).ToList();;
-            if (articles.Count>0)
             {
-                res=true;
+                ID = x.ID,
+                Title = x.Title,
+                Text = x.Text,
+                Date = x.Date,
+                AuthorName = UserManager.Users.Where(u => u.Id == x.AuthorID).First().UserName
+            }).ToList(); ;
+            if (articles.Count > 0)
+            {
+                res = true;
             }
 
             return Json(new
@@ -83,6 +84,12 @@ namespace periodontist.Areas.Admin.Controllers
             {
                 result = res
             });
+        }
+
+        [HttpGet]
+        public ActionResult UpdateArticle(ArticleViewModel article)
+        {
+            return View(article);
         }
     }
 }

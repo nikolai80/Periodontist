@@ -7,6 +7,7 @@ namespace periodontist.Areas.Admin.Models
 {
     public class ArticleViewModel
     {
+        public int ID { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
         public DateTime Date { get; set; }

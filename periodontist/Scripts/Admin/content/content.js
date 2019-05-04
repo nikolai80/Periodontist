@@ -2,7 +2,7 @@
     el: '#listArticles',
     data: {
         articles: [],
-        countSumbols:200
+        countSumbols: 200
     },
     mounted: function () {
         this.getAllArticles();
@@ -16,21 +16,22 @@
             });
 
         },
-        updateArticl: function () {
-        alert("Обновить статью?");
+        updateArticl: function (articleId) {
+            console.debug(articleId);
+            axios.get("content/UpdateArticle", { params: { id: articleId } }).then(function () {}); 
         },
-        removeArticl: function () {
+        removeArticl: function (event) {
             alert("Удалить статью?");
         },
-        trimText: function(text) {
+        trimText: function (text) {
             var countSumbols = this.countSumbols;
-            var trimmedText="...";
+            var trimmedText = "...";
             if (text.length > countSumbols) {
-                trimmedText = text.slice(0, countSumbols)+"...";
+                trimmedText = text.slice(0, countSumbols) + "...";
             } else {
                 trimmedText = text;
             }
-        return trimmedText;
+            return trimmedText;
         }
     }
 });

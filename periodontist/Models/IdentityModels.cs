@@ -35,5 +35,7 @@ namespace periodontist.Models
         }
 
         public System.Data.Entity.DbSet<periodontist.Models.ApplicationRole> IdentityRoles { get; set; }
+
+        public System.Data.Entity.DbSet<periodontist.Areas.Admin.Models.ArticleViewModel> ArticleViewModels { get; set; }
     }
 }
