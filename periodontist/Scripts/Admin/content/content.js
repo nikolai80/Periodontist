@@ -1,7 +1,8 @@
 ﻿var listArticles = new Vue({
     el: '#listArticles',
     data: {
-        articles: []
+        articles: [],
+        countSumbols:200
     },
     mounted: function () {
         this.getAllArticles();
@@ -20,6 +21,16 @@
         },
         removeArticl: function () {
             alert("Удалить статью?");
+        },
+        trimText: function(text) {
+            var countSumbols = this.countSumbols;
+            var trimmedText="...";
+            if (text.length > countSumbols) {
+                trimmedText = text.slice(0, countSumbols)+"...";
+            } else {
+                trimmedText = text;
+            }
+        return trimmedText;
         }
     }
 });

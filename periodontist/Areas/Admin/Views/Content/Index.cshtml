@@ -10,7 +10,7 @@
 
     <div class="blogPostItem" v-for="article in articles">
         <h4 class="blogPostItem-header">{{article.Title}}</h4>
-        <span class="blogPostItem-content" v-html="article.Text"></span>
+        <span class="blogPostItem-content" v-html="trimText(article.Text)"></span>
         <button class="updateArticl_btn" v-on:click="updateArticl">Редактировать</button><button class="removeArticl_btn" v-on:click="removeArticl">Удалить</button>
     </div>
 </div>
