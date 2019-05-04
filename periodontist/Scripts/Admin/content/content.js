@@ -18,7 +18,9 @@
         },
         updateArticl: function (articleId) {
             console.debug(articleId);
-            axios.get("content/UpdateArticle", { params: { id: articleId } }).then(function () {}); 
+            axios.get("content/UpdateArticle", { params: { id: articleId } }).then(function (response) {
+            console.debug(response.request);
+            }); 
         },
         removeArticl: function (event) {
             alert("Удалить статью?");
