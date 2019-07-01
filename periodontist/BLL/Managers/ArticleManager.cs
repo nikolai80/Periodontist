@@ -12,6 +12,18 @@ namespace periodontist.BLL.Managers
     {
         private Logger _log=LogManager.GetLogger("admin");
         ArticleRepository repo = new ArticleRepository();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         
         public bool CreateArticle(Article article)
         {
@@ -35,5 +47,27 @@ namespace periodontist.BLL.Managers
             return articles;
         }
 
+
+        public bool UpdateArticle(Article article)
+        {
+            var res = false; 
+            res=repo.Update(article);
+            return res;
+        }
+
+        internal ArticleViewModel GetArticleById(int id)
+        {
+            var article = repo.FindById(id);
+
+            var res=new ArticleViewModel
+            {
+                ID=article.ID,
+                AuthorName =UserManager.Users.Where(u => u.Id == article.AuthorID).Select(x=>x.UserName).First(),
+                Date=article.Date,
+                Text=article.Text,
+                Title=article.Title
+            };
+            return res;
+        }
     }
 }

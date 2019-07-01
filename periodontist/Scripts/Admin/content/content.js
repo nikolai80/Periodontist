@@ -16,13 +16,14 @@
             });
 
         },
-        updateArticl: function (articleId) {
-            console.debug(articleId);
-            axios.get("content/UpdateArticle", { params: { id: articleId } }).then(function (response) {
-            console.debug(response.request);
-            }); 
+        updateArticle: function (articleId) {
+            location.href="content/UpdateArticle?ID="+articleId;
+            //axios.get("content/UpdateArticle", { params: { ID: articleId } }).then(function (response) {
+            //    console.debug(response.redirectToUrl);
+            //    //window.location.href = response.redirectToUrl;
+            //}); 
         },
-        removeArticl: function (event) {
+        removeArticle: function (event) {
             alert("Удалить статью?");
         },
         trimText: function (text) {

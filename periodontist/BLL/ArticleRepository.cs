@@ -79,15 +79,27 @@ namespace periodontist.BLL
             }
         }
 
-        public void Update(Article item)
+        public bool Update(Article item)
         {
+            bool res = false;
             string sql = "UPDATE p_Article SET Title=N'" + item.Title + "',Text=N'" + item.Text + "',AuthorID='" + item.AuthorID + "',Data='" + item.Date + "' WHERE Id=" + item.ID;
-            using (SqlConnection cn = new SqlConnection(connString))
+            try
             {
-                cn.Open();
-                var res = cn.ExecuteScalar(sql);
-                cn.Close();
+                using (SqlConnection cn = new SqlConnection(connString))
+                {
+                    cn.Open();
+                    var rr = cn.ExecuteScalar(sql);
+                    res = true;
+                    cn.Close();
+                }
             }
+            catch (Exception ex)
+            {
+                _log.Info("Данные не обновлены для {0}- {1}",item.ID,item.Title);
+                _log.Error(ex.Message);
+            }
+
+            return res;
         }
     }
 }

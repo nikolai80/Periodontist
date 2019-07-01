@@ -28,7 +28,7 @@
             grid-area: text;
         }
 
-        .updateArticl_btn {
+        .updateArticle_btn {
             @extend %flat_buttons;
             background-color: #98d45e;
             margin-right: 16px;
@@ -36,7 +36,7 @@
             justify-self: end;
         }
 
-        .removeArticl_btn {
+        .removeArticle_btn {
             @extend %flat_buttons;
             background-color: red;
             grid-area: removeBtn;

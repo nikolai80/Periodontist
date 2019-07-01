@@ -1,4 +1,4 @@
-﻿.listArticles .blogPostItem .updateArticl_btn, .listArticles .blogPostItem .removeArticl_btn {
+﻿.listArticles .blogPostItem .updateArticle_btn, .listArticles .blogPostItem .removeArticle_btn {
   color: #fff;
   border: none;
   padding: 8px;
@@ -21,12 +21,12 @@
       grid-area: header; }
     .listArticles .blogPostItem .blogPostItem-content {
       grid-area: text; }
-    .listArticles .blogPostItem .updateArticl_btn {
+    .listArticles .blogPostItem .updateArticle_btn {
       background-color: #98d45e;
       margin-right: 16px;
       grid-area: updateBtn;
       justify-self: end; }
-    .listArticles .blogPostItem .removeArticl_btn {
+    .listArticles .blogPostItem .removeArticle_btn {
       background-color: red;
       grid-area: removeBtn;
       justify-self: end; }

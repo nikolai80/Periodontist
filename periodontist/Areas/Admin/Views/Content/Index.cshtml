@@ -12,7 +12,7 @@
         <h4 class="blogPostItem-header">{{article.Title}}</h4>
         <span class="blogPostItem-content" v-html="trimText(article.Text)"></span>
         @*<router-link to="content/UpdateArticle?ID=article.ID">Перейти к Foo</router-link>*@
-        <button class="updateArticl_btn" v-on:click="updateArticl(article.ID)">Редактировать</button><button class="removeArticl_btn" v-on:click="removeArticl">Удалить</button>
+        <button class="updateArticle_btn" v-on:click="updateArticle(article.ID)">Редактировать</button><button class="removeArticle_btn" v-on:click="removeArticle">Удалить</button>
     </div>
 </div>
 

@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201812130834379_addNewFieldToUser.Designer.cs">
       <DependentUpon>201812130834379_addNewFieldToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907011227437_newMigr.cs" />
+    <Compile Include="Migrations\201907011227437_newMigr.Designer.cs">
+      <DependentUpon>201907011227437_newMigr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRoleManager.cs" />
@@ -288,7 +292,7 @@
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <None Include=".bin\npm.cmd" />
-    <Content Include="Scripts\Admin\content\AddArticle.js" />
+    <Content Include="Scripts\Admin\content\EditArticle.js" />
     <Content Include="Scripts\Admin\content\content.js" />
     <Content Include="Scripts\axios.js" />
     <Content Include="Scripts\axios.min.js" />
@@ -549,6 +553,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812130834379_addNewFieldToUser.resx">
       <DependentUpon>201812130834379_addNewFieldToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907011227437_newMigr.resx">
+      <DependentUpon>201907011227437_newMigr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

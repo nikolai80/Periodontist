@@ -89,7 +89,30 @@ namespace periodontist.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult UpdateArticle(ArticleViewModel article)
         {
+            var res = mng.GetArticleById(article.ID);
+
             return View(article);
+        }
+
+        [HttpPost]
+        public JsonResult UpdateArticle(string titlearticle, string content)
+        {
+            var res = false;
+            var userName = System.Web.HttpContext.Current.User.Identity.Name;
+            ApplicationUser authenticatedUser = UserManager.Users.Where(u => u.UserName == userName).First();
+
+            res = mng.CreateArticle(new Article
+            {
+                Title = titlearticle,
+                Text = content,
+                Date = DateTime.Now.Date,
+                AuthorID = authenticatedUser.Id
+            });
+
+            return Json(new
+            {
+                result = res
+            });
         }
     }
 }

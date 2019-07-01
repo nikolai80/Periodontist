@@ -11,6 +11,6 @@ namespace periodontist.BLL.Interfaces
         TEntity FindById(int id);
         IEnumerable<TEntity> GetAll();
         void Remove(TEntity item);
-        void Update(TEntity item);
+        bool Update(TEntity item);
     }
 }
