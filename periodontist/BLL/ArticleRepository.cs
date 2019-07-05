@@ -68,9 +68,9 @@ namespace periodontist.BLL
             return articles;
         }
 
-        public void Remove(Article item)
+        public void Remove(int id)
         {
-            string sql = "DELETE FROM p_Article WHERE Id=" + item.ID;
+            string sql = "DELETE FROM p_Article WHERE Id=" + id;
             using (SqlConnection cn = new SqlConnection(connString))
             {
                 cn.Open();

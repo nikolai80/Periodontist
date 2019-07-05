@@ -10,7 +10,7 @@ namespace periodontist.BLL.Interfaces
         bool Create(TEntity item);
         TEntity FindById(int id);
         IEnumerable<TEntity> GetAll();
-        void Remove(TEntity item);
+        void Remove(int id);
         bool Update(TEntity item);
     }
 }

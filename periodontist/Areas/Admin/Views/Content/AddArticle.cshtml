@@ -6,7 +6,11 @@
 
     <div id="addarticle">
         <input type="text" class="titelArticle" v-model="titleArticle"/>
-        <editor api-key="k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek" :init="{plugins: 'wordcount'}" v-model="content"></editor>
+        <editor api-key="k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek" :init="{plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'save table contextmenu directionality emoticons template paste textcolor'
+            ]}" v-model="content"></editor>
         <button class="saveArticle" v-on:click="saveArticle">Сохранить текст</button>
     </div>
 

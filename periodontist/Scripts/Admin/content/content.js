@@ -18,10 +18,6 @@
         },
         updateArticle: function (articleId) {
             location.href="content/UpdateArticle?ID="+articleId;
-            //axios.get("content/UpdateArticle", { params: { ID: articleId } }).then(function (response) {
-            //    console.debug(response.redirectToUrl);
-            //    //window.location.href = response.redirectToUrl;
-            //}); 
         },
         removeArticle: function (event) {
             alert("Удалить статью?");
