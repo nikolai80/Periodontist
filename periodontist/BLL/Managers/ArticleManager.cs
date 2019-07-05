@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 using NLog;
 
 namespace periodontist.BLL.Managers
@@ -17,7 +18,7 @@ namespace periodontist.BLL.Managers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -55,7 +56,15 @@ namespace periodontist.BLL.Managers
             return res;
         }
 
-        internal ArticleViewModel GetArticleById(int id)
+        public Article GetArticleById(int id)
+        {
+            var res = repo.FindById(id);
+
+            
+            return res;
+        }
+
+        public ArticleViewModel GetArticleVewModelById(int id)
         {
             var article = repo.FindById(id);
 

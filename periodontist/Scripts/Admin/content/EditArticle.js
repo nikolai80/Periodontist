@@ -15,18 +15,19 @@
                 content:this.content
                 };
             axios.post("AddArticle", params).then(function (response) {
-                 //window.location.replace("/Content");      
+                 window.location.replace("/Admin/content");      
             });
 
 
         },
         updateArticle: function() {
             var params = {
+                ID:this.id,
                 titlearticle:this.titleArticle,
                 content:this.content
             };
             axios.post("UpdateArticle", params).then(function (response) {
-                //window.location.replace("/Content");      
+                window.location.replace("/Admin/content");      
             });
 
         }

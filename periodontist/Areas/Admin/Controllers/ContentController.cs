@@ -89,24 +89,27 @@ namespace periodontist.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult UpdateArticle(ArticleViewModel article)
         {
-            var res = mng.GetArticleById(article.ID);
+            var res = mng.GetArticleVewModelById(article.ID);
 
-            return View(article);
+            return View(res);
         }
 
         [HttpPost]
-        public JsonResult UpdateArticle(string titlearticle, string content)
+        public JsonResult UpdateArticle(int ID,string titlearticle, string content)
         {
             var res = false;
             var userName = System.Web.HttpContext.Current.User.Identity.Name;
             ApplicationUser authenticatedUser = UserManager.Users.Where(u => u.UserName == userName).First();
 
-            res = mng.CreateArticle(new Article
+            var article=mng.GetArticleById(ID);
+
+            res = mng.UpdateArticle(new Article
             {
+                ID=article.ID,
                 Title = titlearticle,
                 Text = content,
                 Date = DateTime.Now.Date,
-                AuthorID = authenticatedUser.Id
+                AuthorID = article.AuthorID
             });
 
             return Json(new

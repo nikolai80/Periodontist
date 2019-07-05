@@ -2,13 +2,20 @@
 @{
     ViewBag.Title = "UpdateArticle";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    
 }
 
-<div id="addarticle">
+<div id="addarticle" v-bind:data-articleId="id">
     <input type="text" class="titelArticle" v-model="titleArticle"/>
-    <editor api-key="k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek" :init="{plugins: 'wordcount'}" v-model="content"></editor>
+    <editor api-key="k171ojstgqu6i3rygwvgbihduke3uv2h61rf9a4q2mrkpgek" :init="{plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'save table contextmenu directionality emoticons template paste textcolor'
+            ]}" v-model="content"></editor>
     <button class="saveArticle" v-on:click="updateArticle">Сохранить текст</button>
-</div>
+</div> 
+
+<div id="articleContent">@Html.Raw(Model.Text.Trim())</div>
 
 @section scripts{
     @*<script src="~/Scripts/tinymce/tinymce.min.js"></script>*@
@@ -18,6 +25,8 @@
     <script src="~/Scripts/Admin/content/EditArticle.js"></script>
     
     <script type="text/javascript">
-        
+        addarticle.id="@Model.ID",
+        addarticle.titleArticle = "@Model.Title";
+        addarticle.content = $("#articleContent").html();
     </script>
 }
