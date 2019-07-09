@@ -9,7 +9,8 @@
     "tinymce-vue": "1.0.0",
     "dapper": "0.0.6",
     "vue-router": "3.0.6",
-    "gulp": "^4.0.2" 
+    "gulp": "^4.0.2",
+    "gulp-sass": "4.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
